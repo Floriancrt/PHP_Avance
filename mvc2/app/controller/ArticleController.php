@@ -35,16 +35,7 @@ class ArticleController extends AppController{
 
     public function addArticle(){
 
-        if(isset($_POST["submit"]))
-        {
-            $articles = $this->modelName->newArticle($titleArticle = $_POST["name"], 
-                                                    $descriptionArticle = $_POST["description"], 
-                                                    $dateArticle = $_POST["id_categorie"], 
-                                                    $categorieArticle = $_POST["date"]);
-
-                                                   
-        }
-        var_dump($_GET["name"]);
+        $articles = $this->modelName->newArticle();
         return $this->render('global.add', [
             "articles" => $articles,
         ]);
@@ -53,10 +44,7 @@ class ArticleController extends AppController{
 
     public function updateArticle($id){
 
-        if(isset($_POST["submit"]))
-        {
         return $this->modelName->update($id);
-        }
     }
 
     public function edit(){

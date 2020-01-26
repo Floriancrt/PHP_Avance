@@ -56,9 +56,8 @@ class ArticleModel extends Model{
      * @param datetime $dateArticle Date de l'Article
      * @param int $categorieArticle Categorie de l'Article
      */
-    public function newArticle( $titleArticle, $descriptionArticle, $dateArticle, $categorieArticle){
-        return $this->db->query("INSERT INTO articles (title, date_article, description_article, categorie_id) 
-                                VALUES '$titleArticle', '$descriptionArticle', '$dateArticle', '$categorieArticle' ");
+    public function newArticle(){
+        return $this->db->save("INSERT INTO articles SET title = ?, description_article = ?, categorie_id = ?, date_article = ?", [$_POST["title"], $_POST["description"], $_POST["id_categorie"], $_POST["date"]]);
     }
 
 

@@ -18,6 +18,10 @@ if(isset($_GET["page"]) && $_GET["page"] == 'home' || !isset($_GET["page"]))
 if(isset($_GET["page"]) && $_GET["page"] == 'add')
 {
     $result = new ArticleController();
+    $result->modelName->setTitle($_POST['title']);
+    $result->modelName->setDescription($_POST['description']);
+    $result->modelName->setCategory($_POST['id_categorie']);
+    $result->modelName->setDate($_POST['date']);
     $result->addArticle();
 
 }

@@ -8,12 +8,8 @@
   <h2>Ajoutez un article</h2>
   <form action="index.php?page=add" method="POST">
     <div class="form-group">
-      <label for="email">ID</label>
-      <input type="text" class="form-control" id="id" placeholder="Entrez un ID" name="id">
-    </div>
-    <div class="form-group">
       <label for="pwd">Nom de l'article</label>
-      <input type="text" class="form-control" id="name" placeholder="Entrez le nom de l'article" name="name">
+      <input type="text" class="form-control" id="name" placeholder="Entrez le nom de l'article" name="title">
     </div>
     <div class="form-group">
       <label for="pwd">Date</label>
