@@ -1,27 +1,35 @@
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-<div class="container">
-  <h2>Ajoutez un article</h2>
-  <form action="index.php?delete_article=<?= $articles["id"] ?>" method="POST">
-    <div class="form-group">
-      <label for="email"></label>
-      <input type="text" class="form-control" id="id" placeholder="Entrez un ID" name="id">
-    </div>
-    <div class="form-group">
-      <label for="pwd"><?= $articles["title"] ?></label>
-      <input type="text" class="form-control" id="name" placeholder="Entrez le nom de l'article" name="name">
-    </div>
-    <div class="form-group">
-      <label for="pwd"><?= $articles["date_article"] ?></label>
-      <input type="date" class="form-control" id="date" placeholder="Entrez la date" name="date">
-    </div>
-    <div class="form-group">
-      <label for="pwd"><?= $articles["description_article"] ?></label>
-      <input type="text" class="form-control" id="description" placeholder="Entrez une description" name="description">
-    </div>
-    <button type="submit" class="btn btn-primary">Envoyez</button>
-  </form>
+
+
+<form action="" method="post" class="mt-5">
+
+<input type="hidden" name="id" id="id" value="<?= $article["id"]  ?>">
+
+<div class="form-group">
+    <label for="title">Titre: </label>
+    <input type="text" name="title" class="form-control" id="title" placeholder="Title" required value="<?= $article["title"] ?>">
 </div>
+<div class="form-group">
+    <label for="text">Description: </label>
+    <textarea name="description" id="description" class="form-control" rows="5" placeholder="Description" required><?= $article["description_article"]  ?></textarea>
+</div>
+
+<div class="form-group">
+    <label for="category">Catégorie: </label>
+    <input type="text" name="id_categorie" id="category" class="form-control" placeholder="Catégorie"
+    required value="<?= $article["id_categorie"] ?>"></input>
+</div>
+
+<div class="form-group">
+    <label for="date">Date: </label>
+    <input type="text" id="date" name="date" class="form-control" required value="<?= $article["date_article"]  ?>">
+</div>
+
+<button type="submit" class="btn btn-success" name="submit" id="update_article">Modifier l'article !</button>
+
+</form>

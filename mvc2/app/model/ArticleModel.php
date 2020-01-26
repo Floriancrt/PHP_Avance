@@ -6,7 +6,11 @@ use  Core\Model\Model;
 
 class ArticleModel extends Model{
     
-    
+    private $id;
+    private $title;
+    private $description;
+    private $category;
+    private $date;
 
 
     /**
@@ -57,22 +61,11 @@ class ArticleModel extends Model{
                                 VALUES '$titleArticle', '$descriptionArticle', '$dateArticle', '$categorieArticle' ");
     }
 
-    /**
-     * Modifie l'article dans la table Articles
-     * 
-     * @param varchar $titleArticle Intitulé de l'Article
-     * @param varchar $descriptionArticle Description de l'Article
-     * @param datetime $dateArticle Date de l'Article
-     * @param int $categorieArticle Categorie de l'Article
-     */
-    public function updateArticle($titleArticle, $descriptionArticle, $dateArticle, $categorieArticle){
-        return $this->db->query("UPDATE articles 
-                                SET title = '$titleArticle', 
-                                    description_article = '$descriptionArticle', 
-                                    date_article = '$dateArticle',
-                                    categorie_id = '$categorieArticle");
-    }
 
+    public function update($id){
+    
+        return $this->db->save("UPDATE articles SET title = ?, description_article = ?, categorie_id = ?, date_article = ? WHERE id = '$id'", [$_POST["title"], $_POST["description"], $_POST["id_categorie"], $_POST["date"]]);
+    }
 
     /**
      * Supprime un article selon son id dans la table Articles
@@ -82,5 +75,30 @@ class ArticleModel extends Model{
     public function deleteArticle($idArticle)
     {
         return $this->db->query("DELETE FROM articles WHERE id = $idArticle ",false);
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    public function setCategory($category)
+    {
+        $this->category = $category;
+        return $category;
+    }
+
+    public function setDate($date){
+        $this->date = $date;
     }
 }

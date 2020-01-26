@@ -22,10 +22,25 @@ if(isset($_GET["page"]) && $_GET["page"] == 'add')
 
 }
 
+if(isset($_GET["update_article"]))
+{
+    $result = new ArticleController();
+    $result->modelName->setTitle($_POST['title']);
+    $result->modelName->setDescription($_POST['description']);
+    $result->modelName->setCategory($_POST['id_categorie']);
+    $result->modelName->setDate($_POST['date']);
+    $result->edit();
+    if(isset($_POST["submit"]))
+    {
+        $result->updateArticle($_POST["id"]);
+        var_dump($result->updateArticle($_POST["id"]));
+    }
+}
+
 if(isset($_GET["delete_article"]))
 {
     $result = new ArticleController();
-    $result->delete();
+    $result->deleteArticle();
 }
 
 if(isset($_GET["categorie"]))

@@ -50,19 +50,23 @@ class ArticleController extends AppController{
         ]);
     }
 
-    public function update($titleArticle, $descriptionArticle, $dateArticle, $categorieArticle){
+
+    public function updateArticle($id){
 
         if(isset($_POST["submit"]))
         {
-            $articles = $this->modelName->updateArticle($titleArticle = $_GET["name"], $descriptionArticle = $_GET[""], $dateArticle, $categorieArticle);
-            return $this->render('global.home', [
-                "articles" => $articles,
-            ]);
-                
+        return $this->modelName->update($id);
         }
     }
 
-    public function delete()
+    public function edit(){
+        $article = $this->modelName->getArticle($idArticle = $_GET["update_article"]);
+        return $this->renderview('global.article_update',[
+            "article"=>$article
+        ]);
+    }
+
+    public function deleteArticle()
     {
 
             $articles = $this->modelName->deleteArticle($idArticle = $_GET["delete_article"]);

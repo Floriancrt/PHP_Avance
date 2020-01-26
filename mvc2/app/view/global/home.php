@@ -43,7 +43,7 @@ h4 {
             <td><?= $article["description_article"] ?></input></td> 
             <td><a href="?categorie='<?= $article["id_categorie"] ?>'"><?= $article["nom"] ?></a></td> 
             <td>
-              <button type="button" class="btn btn-success" value="Modifier" name="ActionArticle"><i class="fas fa-edit"></i></button>
+            <a href="?update_article='<?= $article["id"] ?>'" name="nameArticle">Modifier</a>
             </td>
             <td>
             <a href="?delete_article='<?= $article["id"] ?>'" name="nameArticle">Supprimer</a>
